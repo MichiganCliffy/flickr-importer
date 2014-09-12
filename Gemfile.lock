@@ -1,0 +1,26 @@
+GIT
+  remote: git://github.com/MichiganCliffy/Cliffy.Ruby.CliffyGem.git
+  revision: 3480b7f80e44d9db33a3192a5cf653ead5ce72dd
+  specs:
+    cliffy_gem (1.0.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bson (1.10.2)
+    flickraw (0.9.8)
+    mongo (1.10.2)
+      bson (= 1.10.2)
+    mongodb (2.1.0)
+      mongo (~> 1.5)
+    rake (10.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cliffy_gem!
+  flickraw
+  mongo
+  mongodb
+  rake
