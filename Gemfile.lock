@@ -11,8 +11,6 @@ GEM
     flickraw (0.9.8)
     mongo (1.10.2)
       bson (= 1.10.2)
-    mongodb (2.1.0)
-      mongo (~> 1.5)
     rake (10.3.2)
 
 PLATFORMS
@@ -22,5 +20,4 @@ DEPENDENCIES
   cliffy_gem!
   flickraw
   mongo
-  mongodb
   rake
