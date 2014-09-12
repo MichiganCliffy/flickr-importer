@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'json'
 gem 'mongo'
+gem 'bson'
+gem 'bson_ext'
 gem 'flickraw'
-gem 'cliffy_gem', :git => 'https://github.com/MichiganCliffy/Cliffy.Ruby.CliffyGem.git'
 gem 'rake'
+gem 'cliffy_gem', :git => 'https://github.com/MichiganCliffy/Cliffy.Ruby.CliffyGem.git'
