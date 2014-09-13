@@ -74,8 +74,7 @@ class FlickrSetRepository
 
   def map_to_photograph(album_id, photograph, ownername)
     adapter = FlickrAdapterPhotograph.new()
-    photograph = adapter.map_from_source(album_id, photograph)
-    photograph.photographer = ownername
+    photograph = adapter.map_from_source(album_id, photograph, ownername)
     return photograph
   end
 end

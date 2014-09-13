@@ -5,7 +5,7 @@ require_relative "./photograph_size"
 require_relative "./photograph_uri"
 
 class FlickrAdapterPhotograph
-  def map_from_source(album_id, source)
+  def map_from_source(album_id, source, photographer = "")
     photograph = Photograph.new()
     if source != nil
       
@@ -27,11 +27,15 @@ class FlickrAdapterPhotograph
       
       photograph.media = source["media"]
 
-      if source["ownername"] != nil && source["ownername"].length > 0
-        photograph.photographer = source["ownername"]
+      if photographer != nil && photographer.length > 0
+        photograph.photographer = photographer
       else
-        if source["owner"] != nil && source["owner"]["username"].length > 0
-          photograph.photographer = source["owner"]["username"]
+        if source["ownername"] != nil && source["ownername"].length > 0
+          photograph.photographer = source["ownername"]
+        else
+          if source["owner"] != nil && source["owner"]["username"].length > 0
+            photograph.photographer = source["owner"]["username"]
+          end
         end
       end
 
@@ -39,7 +43,7 @@ class FlickrAdapterPhotograph
       photograph.secret = source["secret"]
       photograph.album_id = album_id
       photograph.title = source["title"]
-      photograph.uri_source = "https://www.flickr.com/photos/#{photograph.photographer}/#{photograph.photo_id}"
+      photograph.uri_source = "https://www.flickr.com/photos/#{photograph.photographer.downcase}/#{photograph.photo_id}"
       photograph.tags = map_tags(source["tags"])
       photograph.uri_sizes = []
 
