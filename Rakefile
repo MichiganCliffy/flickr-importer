@@ -1,6 +1,7 @@
-require "cliffy_gem"
+require_relative "./flickr_importer"
 
-include CliffyGem::Data
+FlickRaw.api_key = "53cd1e15db474f964abc3cfc16e0735f"
+FlickRaw.shared_secret = "786ddc128885ed49"
 
 task :default do
   importer = FlickrImporter.new
