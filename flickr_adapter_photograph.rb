@@ -12,6 +12,10 @@ class FlickrAdapterPhotograph
       if source["dateuploaded"] != nil
         photograph.date_saved = Time.strptime(source["dateuploaded"], "%s")
       end
+      
+      if source["dateupload"] != nil
+        photograph.date_saved = Time.strptime(source["dateupload"], "%s")
+      end
 
       if source["dateadded"] != nil
         photograph.date_saved = Time.strptime(source["dateadded"], "%s")
