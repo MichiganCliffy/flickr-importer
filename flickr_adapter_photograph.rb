@@ -1,4 +1,5 @@
 require "date"
+require "time"
 require_relative "./photograph"
 require_relative "./photograph_size"
 require_relative "./photograph_uri"
