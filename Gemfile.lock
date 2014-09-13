@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/MichiganCliffy/Cliffy.Ruby.CliffyGem.git
-  revision: 5e3c78a5359d4c26db7273ddb6e294bbb18978b3
+  revision: 61fd17661972c5d339bab29e49131cd364a81fc1
   specs:
-    cliffy_gem (1.0.7)
+    cliffy_gem (1.0.9)
 
 GEM
   remote: https://rubygems.org/
