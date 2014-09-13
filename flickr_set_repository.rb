@@ -30,7 +30,7 @@ class FlickrSetRepository
         print "."
         STDOUT.flush
         pool = flickr.photosets.getPhotos :photoset_id => album_id,
-                                          :extras => "tags,description,media,url_sq,url_t,url_s,url_m,url_o",
+                                          :extras => "tags,description,date_upload,media,url_sq,url_t,url_s,url_m,url_o",
                                           :page => page
 
         if pool != nil
@@ -57,7 +57,7 @@ class FlickrSetRepository
     end
 
     pool = flickr.photosets.getPhotos :photoset_id => album_id,
-                                      :extras => "tags,description,media,url_sq,url_t,url_s,url_m,url_o",
+                                      :extras => "tags,description,date_upload,media,url_sq,url_t,url_s,url_m,url_o",
                                       :page => page,
                                       :per_page => @max_number_of_photographs
 
