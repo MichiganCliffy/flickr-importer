@@ -1,8 +1,6 @@
 require "date"
 require "time"
-require_relative "./photograph"
-require_relative "./photograph_size"
-require_relative "./photograph_uri"
+require_relative "./models"
 
 class FlickrAdapterPhotograph
   def map_from_source(album_id, source, photographer = "")
@@ -99,6 +97,8 @@ class FlickrAdapterPhotograph
     end
     return []
   end
+
+  private
 
   def map_tags_from_response(source)
     output = []
