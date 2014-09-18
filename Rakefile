@@ -11,7 +11,7 @@ end
 
 task :test_import do
   importer = FlickrImporter.new
-  importer.run({})
+  importer.run({"database_name" => "testing"})
 end
 
 task :test_pull_from_flickr do
