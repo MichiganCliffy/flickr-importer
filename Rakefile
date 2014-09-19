@@ -1,3 +1,4 @@
+require 'yaml'
 require_relative "./flickr_importer"
 
 FlickRaw.api_key = "53cd1e15db474f964abc3cfc16e0735f"
@@ -28,4 +29,9 @@ task :test_push_to_mongo do
   
   importer = FlickrImporter.new({"database_name" => "testing"})
   importer.push_to_mongo(albums)
+end
+
+task :test_ymal_read do
+  config = YAML.load_file('cliffordcorner.yml')
+  puts config["albums"][2]
 end

@@ -1,73 +1,275 @@
-album:
-  type: pool
-  id: 31386902@N00
-  title: "Photographs"
-  description: "Photographs by, about, and related to the Clifford Family."
-  sort_order: 1
-album:
-  type: album
-  id: 72157645299291057
-  title: "Sabbatical 2014"
-  description: "Photographs from our family trips to Mexico and Michigan."
-  sort_order: 2
-album:
-  type: album
-  id: 72157624473398430
-  title: "Sabbatical 2010"
-  description: "Photographs from our adventures through Turkey, Greece and Croatia."
-  sort_order: 3
-album:
-  type: album
-  id: 72157621459686057
-  title: "Wedding"
-  description: "Photographs and notes from our Wedding."
-  sort_order: 4
-album:
-  type: album
-  id: 72157620904653603
-  title: "Honeymoon"
-  description: "Our relaxing honeymoon adventure to Roatan, Honduras."
-  sort_order: 5
-album:
-  type: album
-  id: 72157606701085631
-  title: "Peru"
-  description: "A trek around Salkantey, ending at Machu Picchu."
-  sort_order: 6
-album:
-  type: album
-  id: 72157602427960981
-  title: "Nepal"
-  description: "A trek through the Everest Region in Nepal. Including stops in Bangkok and Kathmandu."
-  sort_order: 7
-album:
-  type: album
-  id: 72157594373088876
-  title: "Australia"
-  description: "Travels through Australia and Tasmania."
-  sort_order: 8
-album:
-  type: album
-  id: 1157473
-  title: "Bhutan"
-  description: "Exploring the Himilayan Kingdom of Bhutan, Angkor Wat, and Bangkok."
-  sort_order: 9
-album:
-  type: album
-  id: 707782
-  title: "Chile"
-  description: "Quick adventure down to the Thin Country (Chile)."
-  sort_order: 10
-album:
-  type: microsite
-  id: africa
-  uri: /tavellog/africa
-  title: "Africa"
-  description: "African Safari Adventure."
-  sort_order: 11
-album:
-  type: album
-  id: 72157594259055081
-  title: "Moab"
-  description: "Hiking, Mountain Biking, and otherwise adventuring solo around Utah."
-  sort_order: 12
+albums:
+  - 
+    type: pool
+    id: 31386902@N00
+    title: "Photographs"
+    description: "Photographs by, about, and related to the Clifford Family."
+    sort_order: 1
+  -
+    type: album
+    id: 72157645299291057
+    title: "Sabbatical 2014"
+    description: "Photographs from our family trips to Mexico and Michigan."
+    sort_order: 2
+  -
+    type: album
+    id: 72157624473398430
+    title: "Sabbatical 2010"
+    description: "Photographs from our adventures through Turkey, Greece and Croatia."
+    sort_order: 3
+    pages:
+      -
+        type: flickrtag
+        title: "All Photographs"
+        tag: sabbatical
+      -
+        type: flickrtag
+        title: "Turkey"
+        tag: turkey
+      -
+        type: flickrtag
+        title: "Greece"
+        tag: greece
+      -
+        type: flickrtag
+        title: "Croatia"
+        tag: croatia
+      -
+        type: blogposts
+        title: "Notes and Stories"
+        tag: 2010%20Sabbatical
+  -
+    type: album
+    id: 72157621459686057
+    title: "Wedding"
+    description: "Photographs and notes from our Wedding."
+    sort_order: 4
+    pages:
+      -
+        type: flickrtag
+        tag: preparation
+        title: "The Preparation"
+      -
+        type: flickrtag
+        tag: rehearsaldinner
+        title: "The Rehearsal Dinner"
+      -
+        type: flickrtag
+        tag: portraits
+        title: "Taking Portraits"
+      -
+        type: flickrtag
+        tag: ceremony
+        title: "The Ceremony"
+      -
+        type: flickrtag
+        tag: reception
+        title: "The Reception"
+      -
+        type: flickrtag
+        tag: bridegroom
+        title: "The Bride &amp; Groom"
+      -
+        type: flickrtag
+        tag: family
+        title: "Family Shots"
+      -
+        type: flickrtag
+        tag: guests
+        title: "Our Guests"
+      -
+        type: blogposts
+        tag: Wedding
+        title: "Posts"
+  -
+    type: album
+    id: 72157620904653603
+    title: "Honeymoon"
+    description: "Our relaxing honeymoon adventure to Roatan, Honduras."
+    sort_order: 5
+    pages:
+      -
+        type: flickrtag
+        tag: honeymoon
+        title: "All Photographs"
+      -
+        type: flickrtag
+        tag: barefootcay
+        title: "Barefoot Cay"
+      -
+        type: flickrtag
+        tag: picobonito
+        title: "Pico Bonito"
+      -
+        type: flickrtag
+        tag: anthonyskey
+        title: "Anthony's Key"
+      -
+        type: flickrtag
+        tag: westbay
+        title: "West Bay"
+      -
+        type: flickrtag
+        tag: infinitybay
+        title: "Infinity Bay"
+  -
+    type: album
+    id: 72157606701085631
+    title: "Peru"
+    description: "A trek around Salkantey, ending at Machu Picchu."
+    sort_order: 6
+    pages:
+      -
+        type: flickrtag
+        tag: cuzco
+        title: "Cuzco"
+      -
+        type: flickrtag
+        tag: sacsayhuaman
+        title: "Sacsayhuaman"
+      -
+        type: flickrtag
+        tag: salkantay
+        title: "Salkantay Trek"
+      -
+        type: flickrtag
+        tag: machupicchu
+        title: "Machu Picchu"
+  -
+    type: album
+    id: 72157602427960981
+    title: "Nepal"
+    description: "A trek through the Everest Region in Nepal. Including stops in Bangkok and Kathmandu."
+    sort_order: 7
+    pages:
+      -
+        type: flickrtag
+        tag: kathmandu
+        title: "Kathmandu"
+      -
+        type: flickrtag
+        tag: trek
+        title: "The Trek"
+      -
+        type: flickrtag
+        tag: namche
+        title: "Around Namche"
+      -
+        type: flickrtag
+        tag: everest
+        title: "Mt Everest"
+      -
+        type: flickrtag
+        tag: tengboche
+        title: "Around Tengboche"
+      -
+        type: flickrtag
+        tag: lukla
+        title: "Around Lukla"
+      -
+        type: flickrtag
+        tag: bangkok
+        title: "Bangkok"
+  -
+    type: album
+    id: 72157594373088876
+    title: "Australia"
+    description: "Travels through Australia and Tasmania."
+    sort_order: 8
+    pages:
+      -
+        type: flickrtag
+        tag: taltarni
+        title: "Taltarni &amp; a Country Race"
+      -
+        type: flickrtag
+        tag: victoria
+        title: "The Great Ocean Road"
+      -
+        type: flickrtag
+        tag: tasmania
+        title: "Tassie Travels"
+      -
+        type: flickrtag
+        tag: newsouthwales
+        title: "Mary, Dave &amp; New South Wales"
+      -
+        type: html
+        uri: "/travellogs/australia.html"
+        title: "Travel Journal"
+  -
+    type: album
+    id: 1157473
+    title: "Bhutan"
+    description: "Exploring the Himilayan Kingdom of Bhutan, Angkor Wat, and Bangkok."
+    sort_order: 9
+    pages:
+      -
+        type: flickrtag
+        tag: bangkok
+        title: "Bangkok"
+      -
+        type: flickrtag
+        tag: cambodia
+        title: "Cambodia"
+      -
+        type: flickrtag
+        tag: bhutan
+        title: "Bhutan"
+      -
+        type: html
+        uri: "~/travellogs/bhutan.html"
+        title: "Travel Journal"
+  -
+    type: album
+    id: 707782
+    title: "Chile"
+    description: "Quick adventure down to the Thin Country (Chile)."
+    sort_order: 10
+    pages:
+      -
+        type: flickrtag
+        tag: aroundsantiago
+        title: "Around Santiago"
+      -
+        type: flickrtag
+        tag: torresdelpaine
+        title: "Torres del Paine"
+      -
+        type: flickrtag
+        tag: pucon
+        title: "Pucón"
+      -
+        type: html
+        uri: "~/travellogs/chile.html"
+        title: "Travel Journal"
+  -
+    type: microsite
+    id: africa
+    uri: /tavellog/africa
+    title: "Africa"
+    description: "African Safari Adventure."
+    sort_order: 11
+  -
+    type: album
+    id: 72157594259055081
+    title: "Moab"
+    description: "Hiking, Mountain Biking, and otherwise adventuring solo around Utah."
+    sort_order: 12
+    pages:
+      -
+        type: html
+        uri: "~/travellogs/moab.html"
+        title: "Travel Journal"
+      -
+        type: flickrtag
+        tag: bryce
+        title: "Bryce"
+      -
+        type: flickrtag
+        tag: zion
+        title: "Zion"
+      -
+        type: flickrtag
+        tag: moab
+        title: "Moab"
