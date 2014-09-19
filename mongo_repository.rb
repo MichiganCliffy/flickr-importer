@@ -31,9 +31,10 @@ class MongoRepository
     wrap_mongo_call { |db|
       drop_temp_tables(db)
 
+      adapter = MongoAdapter.new()
       albums.each do |album|
-        store_album(db, album)
-        store_photographs(db, album)
+        store_album(db, album, adapter)
+        store_photographs(db, album, adapter)
       end
 
       drop_real_tables(db)
@@ -77,15 +78,15 @@ class MongoRepository
     end
   end
 
-  def store_album(db, album)
-    adapter = MongoAdapterPhotographAlbum.new()
+  def store_album(db, album, adapter)
     db[@album_table_name + "_"].insert(adapter.album_to_mongo(album))
   end
 
-  def store_photographs(db, album)
-    adapter = MongoAdapterPhotograph.new()
-    album.photographs.each do |photograph|
-      db[@photograph_table_name + "_"].insert(adapter.photograph_to_mongo(photograph))
+  def store_photographs(db, album, adapter)
+    if album.respond_to?("photographs")
+      album.photographs.each do |photograph|
+        db[@photograph_table_name + "_"].insert(adapter.photograph_to_mongo(photograph))
+      end
     end
   end
 
