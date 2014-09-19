@@ -5,12 +5,50 @@ albums:
     title: "Photographs"
     description: "Photographs by, about, and related to the Clifford Family."
     sort_order: 1
+    pages:
+      -
+        type: flickrtag
+        value: family
+        title: "Family"
+      -
+        type: flickrtag
+        value: ross
+        title: "Ross"
+      -
+        type: flickrtag
+        value: tommy
+        title: "Tommy"
+      -
+        type: flickrtag
+        value: debbie
+        title: "Debbie"
+      -
+        type: flickrtag
+        value: colin
+        title: "Colin"
+      -
+        type: flickrtag
+        value: emily
+        title: "Emily"
   -
     type: album
     id: 72157645299291057
     title: "Sabbatical 2014"
     description: "Photographs from our family trips to Mexico and Michigan."
     sort_order: 2
+    pages:
+      -
+        type: flickrtag
+        title: "Mexico"
+        value: mexico
+      -
+        type: flickrtag
+        title: "Michigan"
+        value: michigan
+      -
+        type: flickrtag
+        title: "Camping"
+        value: camping
   -
     type: album
     id: 72157624473398430
@@ -21,23 +59,23 @@ albums:
       -
         type: flickrtag
         title: "All Photographs"
-        tag: sabbatical
+        value: sabbatical
       -
         type: flickrtag
         title: "Turkey"
-        tag: turkey
+        value: turkey
       -
         type: flickrtag
         title: "Greece"
-        tag: greece
+        value: greece
       -
         type: flickrtag
         title: "Croatia"
-        tag: croatia
+        value: croatia
       -
         type: blogposts
         title: "Notes and Stories"
-        tag: 2010%20Sabbatical
+        value: 2010%20Sabbatical
   -
     type: album
     id: 72157621459686057
@@ -47,39 +85,39 @@ albums:
     pages:
       -
         type: flickrtag
-        tag: preparation
+        value: preparation
         title: "The Preparation"
       -
         type: flickrtag
-        tag: rehearsaldinner
+        value: rehearsaldinner
         title: "The Rehearsal Dinner"
       -
         type: flickrtag
-        tag: portraits
+        value: portraits
         title: "Taking Portraits"
       -
         type: flickrtag
-        tag: ceremony
+        value: ceremony
         title: "The Ceremony"
       -
         type: flickrtag
-        tag: reception
+        value: reception
         title: "The Reception"
       -
         type: flickrtag
-        tag: bridegroom
+        value: bridegroom
         title: "The Bride &amp; Groom"
       -
         type: flickrtag
-        tag: family
+        value: family
         title: "Family Shots"
       -
         type: flickrtag
-        tag: guests
+        value: guests
         title: "Our Guests"
       -
         type: blogposts
-        tag: Wedding
+        value: Wedding
         title: "Posts"
   -
     type: album
@@ -90,27 +128,27 @@ albums:
     pages:
       -
         type: flickrtag
-        tag: honeymoon
+        value: honeymoon
         title: "All Photographs"
       -
         type: flickrtag
-        tag: barefootcay
+        value: barefootcay
         title: "Barefoot Cay"
       -
         type: flickrtag
-        tag: picobonito
+        value: picobonito
         title: "Pico Bonito"
       -
         type: flickrtag
-        tag: anthonyskey
+        value: anthonyskey
         title: "Anthony's Key"
       -
         type: flickrtag
-        tag: westbay
+        value: westbay
         title: "West Bay"
       -
         type: flickrtag
-        tag: infinitybay
+        value: infinitybay
         title: "Infinity Bay"
   -
     type: album
@@ -121,19 +159,19 @@ albums:
     pages:
       -
         type: flickrtag
-        tag: cuzco
+        value: cuzco
         title: "Cuzco"
       -
         type: flickrtag
-        tag: sacsayhuaman
+        value: sacsayhuaman
         title: "Sacsayhuaman"
       -
         type: flickrtag
-        tag: salkantay
+        value: salkantay
         title: "Salkantay Trek"
       -
         type: flickrtag
-        tag: machupicchu
+        value: machupicchu
         title: "Machu Picchu"
   -
     type: album
@@ -144,31 +182,31 @@ albums:
     pages:
       -
         type: flickrtag
-        tag: kathmandu
+        value: kathmandu
         title: "Kathmandu"
       -
         type: flickrtag
-        tag: trek
+        value: trek
         title: "The Trek"
       -
         type: flickrtag
-        tag: namche
+        value: namche
         title: "Around Namche"
       -
         type: flickrtag
-        tag: everest
+        value: everest
         title: "Mt Everest"
       -
         type: flickrtag
-        tag: tengboche
+        value: tengboche
         title: "Around Tengboche"
       -
         type: flickrtag
-        tag: lukla
+        value: lukla
         title: "Around Lukla"
       -
         type: flickrtag
-        tag: bangkok
+        value: bangkok
         title: "Bangkok"
   -
     type: album
@@ -179,23 +217,23 @@ albums:
     pages:
       -
         type: flickrtag
-        tag: taltarni
+        value: taltarni
         title: "Taltarni &amp; a Country Race"
       -
         type: flickrtag
-        tag: victoria
+        value: victoria
         title: "The Great Ocean Road"
       -
         type: flickrtag
-        tag: tasmania
+        value: tasmania
         title: "Tassie Travels"
       -
         type: flickrtag
-        tag: newsouthwales
+        value: newsouthwales
         title: "Mary, Dave &amp; New South Wales"
       -
         type: html
-        uri: "/travellogs/australia.html"
+        value: "/travellogs/australia.html"
         title: "Travel Journal"
   -
     type: album
@@ -206,19 +244,19 @@ albums:
     pages:
       -
         type: flickrtag
-        tag: bangkok
+        value: bangkok
         title: "Bangkok"
       -
         type: flickrtag
-        tag: cambodia
+        value: cambodia
         title: "Cambodia"
       -
         type: flickrtag
-        tag: bhutan
+        value: bhutan
         title: "Bhutan"
       -
         type: html
-        uri: "~/travellogs/bhutan.html"
+        value: "~/travellogs/bhutan.html"
         title: "Travel Journal"
   -
     type: album
@@ -229,19 +267,19 @@ albums:
     pages:
       -
         type: flickrtag
-        tag: aroundsantiago
+        value: aroundsantiago
         title: "Around Santiago"
       -
         type: flickrtag
-        tag: torresdelpaine
+        value: torresdelpaine
         title: "Torres del Paine"
       -
         type: flickrtag
-        tag: pucon
+        value: pucon
         title: "Pucón"
       -
         type: html
-        uri: "~/travellogs/chile.html"
+        value: "~/travellogs/chile.html"
         title: "Travel Journal"
   -
     type: microsite
@@ -259,17 +297,17 @@ albums:
     pages:
       -
         type: html
-        uri: "~/travellogs/moab.html"
+        value: "~/travellogs/moab.html"
         title: "Travel Journal"
       -
         type: flickrtag
-        tag: bryce
+        value: bryce
         title: "Bryce"
       -
         type: flickrtag
-        tag: zion
+        value: zion
         title: "Zion"
       -
         type: flickrtag
-        tag: moab
+        value: moab
         title: "Moab"

@@ -33,10 +33,14 @@ class MongoRepository
 
       adapter = MongoAdapter.new()
       albums.each do |album|
+        print "."
+        STDOUT.flush
         store_album(db, album, adapter)
         store_photographs(db, album, adapter)
       end
 
+      print "."
+      STDOUT.flush
       drop_real_tables(db)
       rename_temp_tables(db)
     }

@@ -33,8 +33,8 @@ end
 class PhotographAlbumTag
 	include Comparable	
 
-	attr_accessor :tag
-	attr_accessor :count
+	attr_accessor	:tag,
+								:count
 
 	def initialize(tag = nil)
 		@tag = tag
@@ -50,15 +50,23 @@ class PhotographAlbumTag
 	end
 end
 
+class PhotographAlbumPage
+	attr_accessor	:type,
+								:title,
+								:value
+end
+
 class PhotographAlbum
 	attr_accessor :id,
+								:type,
 								:title,
 								:description,
 								:sort_order,
 								:default_photograph_id,
 								:total,
 								:tags,
-								:photographs
+								:photographs,
+								:pages
     
 	def initialize()
 		@title = ""
@@ -67,6 +75,7 @@ class PhotographAlbum
 		@sort_order = 9999
 		@tags = []
 		@photographs = []
+		@pages = []
 	end
 
 	def add(photo)
@@ -106,8 +115,8 @@ class PhotographAlbum
 end
 
 class PhotographUri
-	attr_accessor :size
-	attr_accessor :uri
+	attr_accessor	:size,
+								:uri
     
 	def initialize()
 		@size = PhotographSize::UNDEFINED

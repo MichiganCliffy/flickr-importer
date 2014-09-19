@@ -57,13 +57,21 @@ class MongoAdapter
 					output[:SortOrder] = hash[key].to_i
 
 				when "type"
-					#do nothing
+					output[:Type] = hash[key]
 
 				else
 					output[eval(":#{key.capitalize}")] = hash[key]
 
 			end
 		end
+
+		pages = []
+		if hash["pages"] != nil
+			hash["pages"].each do |page|
+				pages << {:Type => page.type, :Title => page.title, :Value => page.value}
+			end
+		end
+		output[:Pages] = pages
 
 		return output
 	end
@@ -74,14 +82,21 @@ class MongoAdapter
 			tags << {:Tag => tag.tag, :Count => tag.count}
 		end
 
+		pages = []
+		album.pages.each do |page|
+			pages << {:Type => page.type, :Title => page.title, :Value => page.value}
+		end
+
 		output = {
 			:_id => album.id,
+			:Type => album.type,
 			:Title => album.title,
 			:Description => album.description,
 			:SortOrder => album.sort_order,
 			:Total => album.total,
 			:DefaultPhotoId => album.default_photograph_id,
-			:Tags => tags
+			:Tags => tags,
+			:Pages => pages
 		}
 
 		return output

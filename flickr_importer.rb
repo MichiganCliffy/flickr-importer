@@ -34,9 +34,13 @@ class FlickrImporter
   end
 
   def push_to_mongo(albums, args = {})
-    puts 'storing to mongo...'
+    print 'storing to mongo...'
+    STDOUT.flush
+
     repo = MongoRepository.new(args)
     repo.save_albums(albums)
+
+    puts '.'
   end
 
   def run(args = {})
@@ -55,9 +59,11 @@ class FlickrImporter
     repo = FlickrGroupRepository.new()
     output = repo.get_album(album["id"])
     output.id = "Pool"
+    output.type = album["type"]
     output.description = album["description"]
     output.title = album["title"]
     output.sort_order = album["sort_order"].to_i
+    output.pages = to_pages(album)
 
     output.photographs.each do |photograph|
       photograph.album_id = "Pool"
@@ -69,9 +75,28 @@ class FlickrImporter
   def pull_photoset_from_flickr(album)
     repo = FlickrSetRepository.new()
     output = repo.get_album(album["id"])
+    output.type = album["type"]
     output.description = album["description"]
     output.title = album["title"]
     output.sort_order = album["sort_order"].to_i
+    output.pages = to_pages(album)
+    return output
+  end
+
+  def to_pages(album)
+    output = []
+
+    if album["pages"] != nil
+      album["pages"].each do |page|
+        album_page = PhotographAlbumPage.new()
+        album_page.type = page["type"]
+        album_page.title = page["title"]
+        album_page.value = page["value"]
+
+        output << album_page
+      end
+    end
+
     return output
   end
 end
