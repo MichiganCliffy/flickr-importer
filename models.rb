@@ -52,6 +52,7 @@ end
 
 class PhotographAlbum
 	attr_accessor :id,
+								:uri_id,
 								:type,
 								:title,
 								:description,
@@ -64,6 +65,7 @@ class PhotographAlbum
     
 	def initialize()
 		@title = ""
+		@uri_id = ""
 		@description = ""
 		@total = 0
 		@sort_order = 9999

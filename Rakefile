@@ -11,8 +11,8 @@ task :default do
 end
 
 task :stage do
-  ENV["MONGO_HOST"] = "ds029338.mongolab.com"
-  ENV["MONGO_PORT"] = "29338"
+  ENV["MONGO_HOST"] = "ds053320.mongolab.com"
+  ENV["MONGO_PORT"] = "53320"
   ENV["MONGO_PWD"]  = "stage!"
   ENV["MONGO_USER"] = "staging_user"
   importer = FlickrImporter.new

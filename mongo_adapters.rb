@@ -49,6 +49,7 @@ class MongoAdapter
 
 				when "title"
 					output[:Title] = hash[key]
+					output[:UriId] = hash[key].sub(' ', '-').downcase
 
 				when "description"
 					output[:Description] = hash[key]
@@ -89,6 +90,7 @@ class MongoAdapter
 
 		output = {
 			:_id => album.id,
+			:UriId => album.uri_id.sub(' ', '-').downcase,
 			:Type => album.type,
 			:Title => album.title,
 			:Description => album.description,

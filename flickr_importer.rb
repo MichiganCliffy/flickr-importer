@@ -59,6 +59,7 @@ class FlickrImporter
     repo = FlickrGroupRepository.new()
     output = repo.get_album(album["id"])
     output.id = "Pool"
+    output.uri_id = "Pool"
     output.type = album["type"]
     output.description = album["description"]
     output.title = album["title"]
@@ -75,9 +76,17 @@ class FlickrImporter
   def pull_photoset_from_flickr(album)
     repo = FlickrSetRepository.new()
     output = repo.get_album(album["id"])
+    output.uri_id = album["title"]
     output.type = album["type"]
-    output.description = album["description"]
-    output.title = album["title"]
+
+    if output.description == nil || output.description.length == 0
+      output.description = album["description"]
+    end
+
+    if output.title == nil || output.title.length == 0
+      output.title = album["title"]
+    end
+
     output.sort_order = album["sort_order"].to_i
     output.pages = to_pages(album)
     return output

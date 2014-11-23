@@ -52,7 +52,7 @@ albums:
   -
     type: album
     id: 72157624473398430
-    title: "Sabbatical 2010"
+    title: "Sabbatical"
     description: "Photographs from our adventures through Turkey, Greece and Croatia."
     sort_order: 3
     pages:
@@ -79,7 +79,7 @@ albums:
   -
     type: album
     id: 72157621459686057
-    title: "Wedding"
+    title: "Our Wedding"
     description: "Photographs and notes from our Wedding."
     sort_order: 4
     pages:
