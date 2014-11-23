@@ -13,8 +13,8 @@ end
 task :stage do
   ENV["MONGO_HOST"] = "ds029338.mongolab.com"
   ENV["MONGO_PORT"] = "29338"
-  ENV["MONGO_PWD"]  = "cliffy!"
-  ENV["MONGO_USER"] = "cliffy_user"
+  ENV["MONGO_PWD"]  = "stage!"
+  ENV["MONGO_USER"] = "staging_user"
   importer = FlickrImporter.new
   importer.run({"database_name" => "testing", "config_file" => "cliffordcorner.yml"})
 end
