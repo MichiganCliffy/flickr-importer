@@ -1,4 +1,7 @@
 language: ruby
+branches:
+  only:
+    - movetoyml
 install:
   - bundle install
 script: bundle exec rake test_pull_from_flickr
