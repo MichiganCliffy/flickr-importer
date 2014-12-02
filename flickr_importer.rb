@@ -1,58 +1,70 @@
+require 'yaml'
+
 require_relative "./flickr_repositories"
 require_relative "./mongo_repository"
 
 class FlickrImporter
-  GROUP_ID = "31386902@N00"
-  GROUP_ALBUM_ID = "Pool"
-
-  # this array should be in the order that you want to display on the site
-  PHOTO_SETS = ["72157645299291057", "72157624473398430", "72157621459686057", "72157620904653603", "72157606701085631", "72157602427960981", "72157594373088876", "1157473", "707782", "72157594259055081"]
-
   def initialize(args = {})
   end
 
-  def pull_from_flickr()
+  def pull_from_flickr(config)
     print 'retrieving albums from flickr'
     STDOUT.flush
 
     albums = []
 
-    albums << pull_group_pool_from_flickr
-
-    sort_order = 2
-    PHOTO_SETS.each do |photoset_id|
+    config["albums"].each do |album|
       print '.'
       STDOUT.flush
-      albums << pull_photoset_from_flickr(photoset_id, sort_order)
 
-      sort_order += 1
+      case album["type"]
+        when "pool"
+          albums << pull_group_pool_from_flickr(album)
+
+        when "album"
+          albums << pull_photoset_from_flickr(album)
+
+        else
+          albums << album
+      end
     end
 
-    print '.'
-    STDOUT.flush
+    puts '.'
     return albums
   end
 
   def push_to_mongo(albums, args = {})
-    puts 'storing to mongo...'
+    print 'storing to mongo...'
+    STDOUT.flush
+
     repo = MongoRepository.new(args)
     repo.save_albums(albums)
+
+    puts '.'
   end
 
   def run(args = {})
-    albums = pull_from_flickr()
+    config = read_config_file(args)
+    albums = pull_from_flickr(config)
     push_to_mongo(albums, args)
+  end
+
+  def read_config_file(args = {})
+    return YAML.load_file(args["config_file"])
   end
 
   private
 
-  def pull_group_pool_from_flickr()
+  def pull_group_pool_from_flickr(album)
     repo = FlickrGroupRepository.new()
-    output = repo.get_album(GROUP_ID)
+    output = repo.get_album(album["id"])
     output.id = "Pool"
-    output.description = "Shared Group Pool"
-    output.title = "Shared Group Pool"
-    output.sort_order = 1
+    output.uri_id = "Pool"
+    output.type = album["type"]
+    output.description = album["description"]
+    output.title = album["title"]
+    output.sort_order = album["sort_order"].to_i
+    output.pages = to_pages(album)
 
     output.photographs.each do |photograph|
       photograph.album_id = "Pool"
@@ -61,10 +73,39 @@ class FlickrImporter
     return output
   end
 
-  def pull_photoset_from_flickr(photoset_id, sort_order)
+  def pull_photoset_from_flickr(album)
     repo = FlickrSetRepository.new()
-    output = repo.get_album(photoset_id)
-    output.sort_order = sort_order
+    output = repo.get_album(album["id"])
+    output.uri_id = album["title"]
+    output.type = album["type"]
+
+    if output.description == nil || output.description.length == 0
+      output.description = album["description"]
+    end
+
+    if output.title == nil || output.title.length == 0
+      output.title = album["title"]
+    end
+
+    output.sort_order = album["sort_order"].to_i
+    output.pages = to_pages(album)
+    return output
+  end
+
+  def to_pages(album)
+    output = []
+
+    if album["pages"] != nil
+      album["pages"].each do |page|
+        album_page = PhotographAlbumPage.new()
+        album_page.type = page["type"]
+        album_page.title = page["title"]
+        album_page.value = page["value"]
+
+        output << album_page
+      end
+    end
+
     return output
   end
 end

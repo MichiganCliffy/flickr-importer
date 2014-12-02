@@ -39,7 +39,7 @@ class FlickrAdapterPhotograph
 
       photograph.photo_id = source["id"]
       photograph.secret = source["secret"]
-      photograph.album_id = album_id
+      photograph.album_id = "#{album_id}"
       photograph.title = source["title"]
       photograph.uri_source = "https://www.flickr.com/photos/#{photograph.photographer.downcase}/#{photograph.photo_id}"
       photograph.tags = map_tags(source["tags"])

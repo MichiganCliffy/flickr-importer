@@ -8,23 +8,17 @@ module PhotographSize
 end
 
 class Photograph
-	attr_accessor :photo_id
-	attr_accessor :secret
-	attr_accessor :title
-	attr_accessor :description
-	attr_accessor :media
-	attr_accessor :date_saved
-	attr_accessor :photographer
-	attr_accessor :uri_source
-	attr_accessor :uri_sizes
-	attr_accessor :tags
-	attr_accessor :album_id
-
-	def initialize()
-		@tags = []
-		@uriSizes = []
-	end
-
+	attr_accessor	:photo_id,
+								:secret,
+								:title,
+								:description,
+								:media,
+								:date_saved,
+								:photographer,
+								:uri_source,
+								:uri_sizes,
+								:tags,
+								:album_id
 	def <=>(other)
 		other.date_saved <=> date_saved
 	end
@@ -33,8 +27,8 @@ end
 class PhotographAlbumTag
 	include Comparable	
 
-	attr_accessor :tag
-	attr_accessor :count
+	attr_accessor	:tag,
+								:count
 
 	def initialize(tag = nil)
 		@tag = tag
@@ -50,23 +44,34 @@ class PhotographAlbumTag
 	end
 end
 
+class PhotographAlbumPage
+	attr_accessor	:type,
+								:title,
+								:value
+end
+
 class PhotographAlbum
 	attr_accessor :id,
+								:uri_id,
+								:type,
 								:title,
 								:description,
 								:sort_order,
 								:default_photograph_id,
 								:total,
 								:tags,
-								:photographs
+								:photographs,
+								:pages
     
 	def initialize()
 		@title = ""
+		@uri_id = ""
 		@description = ""
 		@total = 0
 		@sort_order = 9999
 		@tags = []
 		@photographs = []
+		@pages = []
 	end
 
 	def add(photo)
@@ -106,8 +111,8 @@ class PhotographAlbum
 end
 
 class PhotographUri
-	attr_accessor :size
-	attr_accessor :uri
+	attr_accessor	:size,
+								:uri
     
 	def initialize()
 		@size = PhotographSize::UNDEFINED
