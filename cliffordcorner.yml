@@ -233,7 +233,7 @@ albums:
         title: "Mary, Dave &amp; New South Wales"
       -
         type: html
-        value: "/travellogs/australia.html"
+        value: "./html/australia.html"
         title: "Travel Journal"
   -
     type: album
@@ -256,7 +256,7 @@ albums:
         title: "Bhutan"
       -
         type: html
-        value: "~/travellogs/bhutan.html"
+        value: "./html/bhutan.html"
         title: "Travel Journal"
   -
     type: album
@@ -279,7 +279,7 @@ albums:
         title: "Pucón"
       -
         type: html
-        value: "~/travellogs/chile.html"
+        value: "./html/chile.html"
         title: "Travel Journal"
   -
     type: microsite
@@ -297,7 +297,7 @@ albums:
     pages:
       -
         type: html
-        value: "~/travellogs/moab.html"
+        value: "./html/moab.html"
         title: "Travel Journal"
       -
         type: flickrtag

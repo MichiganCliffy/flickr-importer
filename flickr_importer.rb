@@ -100,12 +100,24 @@ class FlickrImporter
         album_page = PhotographAlbumPage.new()
         album_page.type = page["type"]
         album_page.title = page["title"]
-        album_page.value = page["value"]
+        album_page.value = get_page_value(page)
 
         output << album_page
       end
     end
 
     return output
+  end
+
+  def get_page_value(page)
+    output = page["value"]
+    
+    if page["type"] == "html"
+      file = File.open(page["value"], "rb")
+      output = file.read
+      file.close
+    end
+
+    output
   end
 end

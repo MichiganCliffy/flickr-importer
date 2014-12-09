@@ -15,10 +15,17 @@ task :stage do
   importer.run({"database_name" => "testing", "config_file" => "cliffordcorner.yml"})
 end
 
+task :test_config_read do
+  importer = FlickrImporter.new
+  config = importer.read_config_file({"config_file" => "cliffordcorner.yml"})
+  puts config.inspect
+end
+
 task :test_pull_from_flickr do
-  config = YAML.load_file('cliffordcorner.yml')
-  importer = FlickrImporter.new()
+  importer = FlickrImporter.new
+  config = importer.read_config_file({"config_file" => "cliffordcorner.yml"})
   albums = importer.pull_from_flickr(config)
+  puts albums.inspect
 end
 
 task :test_push_to_mongo do
@@ -30,11 +37,6 @@ task :test_push_to_mongo do
   
   importer = FlickrImporter.new({"database_name" => "testing"})
   importer.push_to_mongo(albums)
-end
-
-task :test_ymal_read do
-  config = YAML.load_file('cliffordcorner.yml')
-  puts config["albums"][2]
 end
 
 task :test_hash_mapping do
