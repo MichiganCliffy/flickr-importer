@@ -113,11 +113,11 @@ class FlickrImporter
     output = page["value"]
     
     if page["type"] == "html"
-      file = File.open(page["value"], "rb")
+      file = File.open(page["value"], "r:iso-8859-1'")
       output = file.read
       file.close
     end
 
-    output
+    output.encode('utf-8')
   end
 end
