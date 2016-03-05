@@ -83,7 +83,7 @@ class PhotographAlbum
 		if photo.tags.respond_to?("each")
 			photo.tags.each do |tag|
 				item = @tags.find(ifnone = nil) { |i| i.tag == tag }
-				if item == nil
+				if item.nil?
 					newItem = PhotographAlbumTag.new(tag)
 					@tags << newItem
 				else
