@@ -1,14 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    bson (1.12.3)
-    bson_ext (1.12.3)
-      bson (~> 1.12.3)
+    bson (1.12.5)
+    bson_ext (1.12.5)
+      bson (~> 1.12.5)
     flickraw (0.9.8)
     json (1.8.3)
-    mongo (1.12.3)
-      bson (= 1.12.3)
-    rake (10.4.2)
+    mongo (1.12.5)
+      bson (= 1.12.5)
+    rake (10.5.0)
 
 PLATFORMS
   ruby
@@ -22,4 +22,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
