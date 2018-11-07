@@ -32,10 +32,25 @@ albums:
         title: "Emily"
   -
     type: album
+    id: 72157668055004464
+    title: "Summer Vacation 2016"
+    description: "Our family trip to Maui and the Eastern Sierras."
+    sort_order: 2
+    pages:
+      -
+        type: flickrtag
+        title: "Maui"
+        value: maui
+      -
+        type: flickrtag
+        title: "Eastern Sierras"
+        value: easternsierras
+  -
+    type: album
     id: 72157645299291057
     title: "Sabbatical 2014"
     description: "Photographs from our family trips to Mexico and Michigan."
-    sort_order: 2
+    sort_order: 3
     pages:
       -
         type: flickrtag
@@ -54,7 +69,7 @@ albums:
     id: 72157624473398430
     title: "Sabbatical"
     description: "Photographs from our adventures through Turkey, Greece and Croatia."
-    sort_order: 3
+    sort_order: 4
     pages:
       -
         type: flickrtag
@@ -81,7 +96,7 @@ albums:
     id: 72157621459686057
     title: "Our Wedding"
     description: "Photographs and notes from our Wedding."
-    sort_order: 4
+    sort_order: 5
     pages:
       -
         type: flickrtag
@@ -124,7 +139,7 @@ albums:
     id: 72157620904653603
     title: "Honeymoon"
     description: "Our relaxing honeymoon adventure to Roatan, Honduras."
-    sort_order: 5
+    sort_order: 6
     pages:
       -
         type: flickrtag
@@ -155,7 +170,7 @@ albums:
     id: 72157606701085631
     title: "Peru"
     description: "A trek around Salkantey, ending at Machu Picchu."
-    sort_order: 6
+    sort_order: 7
     pages:
       -
         type: flickrtag
@@ -178,7 +193,7 @@ albums:
     id: 72157602427960981
     title: "Nepal"
     description: "A trek through the Everest Region in Nepal. Including stops in Bangkok and Kathmandu."
-    sort_order: 7
+    sort_order: 8
     pages:
       -
         type: flickrtag
@@ -213,7 +228,7 @@ albums:
     id: 72157594373088876
     title: "Australia"
     description: "Travels through Australia and Tasmania."
-    sort_order: 8
+    sort_order: 9
     pages:
       -
         type: flickrtag
@@ -240,7 +255,7 @@ albums:
     id: 1157473
     title: "Bhutan"
     description: "Exploring the Himilayan Kingdom of Bhutan, Angkor Wat, and Bangkok."
-    sort_order: 9
+    sort_order: 10
     pages:
       -
         type: flickrtag
@@ -263,7 +278,7 @@ albums:
     id: 707782
     title: "Chile"
     description: "Quick adventure down to the Thin Country (Chile)."
-    sort_order: 10
+    sort_order: 11
     pages:
       -
         type: flickrtag
@@ -287,13 +302,13 @@ albums:
     uri: /tavellog/africa
     title: "Africa"
     description: "African Safari Adventure."
-    sort_order: 11
+    sort_order: 12
   -
     type: album
     id: 72157594259055081
     title: "Moab"
     description: "Hiking, Mountain Biking, and otherwise adventuring solo around Utah."
-    sort_order: 12
+    sort_order: 13
     pages:
       -
         type: html
