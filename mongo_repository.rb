@@ -11,6 +11,8 @@ class MongoRepository
                 :photograph_table_name
 
   def initialize(args = {})
+    Mongo::Logger.logger.level = Logger::FATAL
+    
     # set the defaults
     @database_name = "cliffy"
     @album_table_name = "sets"
