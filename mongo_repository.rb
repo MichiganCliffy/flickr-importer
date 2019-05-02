@@ -71,15 +71,8 @@ class MongoRepository
   end
 
   def drop_temp_tables(db)
-    tables = db.collections
-
-    if tables.include? @album_table_name + "_"
-      db[@album_table_name + "_"].drop
-    end
-
-    if tables.include? @photograph_table_name + "_"
-      db[@photograph_table_name + "_"].drop
-    end
+    db[@album_table_name + "_"].drop
+    db[@photograph_table_name + "_"].drop
   end
 
   def store_album(db, album, adapter)
@@ -138,7 +131,6 @@ class MongoRepository
     end
 
     url += '/' + @database_name
-    puts url
 
     db = Mongo::Client.new(url)
 
