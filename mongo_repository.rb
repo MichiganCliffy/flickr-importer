@@ -71,7 +71,7 @@ class MongoRepository
   end
 
   def drop_temp_tables(db)
-    tables = db.collection_names
+    tables = db.collections
 
     if tables.include? @album_table_name + "_"
       db[@album_table_name + "_"].drop
@@ -83,19 +83,19 @@ class MongoRepository
   end
 
   def store_album(db, album, adapter)
-    db[@album_table_name + "_"].insert(adapter.album_to_mongo(album))
+    db[@album_table_name + "_"].insert_one(adapter.album_to_mongo(album))
   end
 
   def store_photographs(db, album, adapter)
     if album.respond_to?("photographs")
       album.photographs.each do |photograph|
-        db[@photograph_table_name + "_"].insert(adapter.photograph_to_mongo(photograph))
+        db[@photograph_table_name + "_"].insert_one(adapter.photograph_to_mongo(photograph))
       end
     end
   end
 
   def drop_real_tables(db)
-    tables = db.collection_names
+    tables = db.collections
 
     if tables.include? @album_table_name
       db[@album_table_name].drop
@@ -107,7 +107,7 @@ class MongoRepository
   end
 
   def rename_temp_tables(db)
-    tables = db.collection_names
+    tables = db.collections
 
     if tables.include? @album_table_name + "_"
       db[@album_table_name + "_"].rename(@album_table_name)
@@ -119,28 +119,31 @@ class MongoRepository
   end
 
   def wrap_mongo_call
-    if @database_host != nil && @database_host.length > 0
-      if @database_port != nil && @database_port.length > 0
-        client = Mongo::MongoClient.new(@database_host, @database_port)
-      else
-        client = Mongo::MongoClient.new(@database_host)
-      end
-    else
-      client = Mongo::MongoClient.new()
-    end
-
-    db = client.db(@database_name)
+    url = 'mongodb://'
 
     user = ENV["MONGO_USER"]
     if user != nil && user.length > 0
       password = ENV["MONGO_PWD"]
-      db.authenticate(user, password)
+      url += user + ':' + password + '@'
     end
+
+    if @database_host != nil && @database_host.length > 0
+      if @database_port != nil && @database_port.length > 0
+        url += @database_host + ':' + @database_port
+      else
+        url += @database_host + ':27017'
+      end
+    else
+      url += '127.0.0.1:27017'
+    end
+
+    url += '/' + @database_name
+    puts url
+
+    db = Mongo::Client.new(url)
 
     yield db
 
     db = nil
-    client.close
-    client = nil
   end
 end
