@@ -44,7 +44,11 @@ class MongoRepository
       print "."
       STDOUT.flush
       drop_real_tables(db)
+      print "dropped old collections"
+      STDOUT.flush
       rename_temp_tables(db)
+      print "renamed new collections"
+      STDOUT.flush
     }
   end
 
@@ -90,27 +94,23 @@ class MongoRepository
   end
 
   def drop_real_tables(db)
-    tables = db.collections
-
-    if tables.include? @album_table_name
-      db[@album_table_name].drop
-    end
-
-    if tables.include? @photograph_table_name
-      db[@photograph_table_name].drop
-    end
+    db[@album_table_name].drop
+    db[@photograph_table_name].drop
   end
 
   def rename_temp_tables(db)
-    tables = db.collections
+    db.use(:admin).command(
+      renameCollection: "#{@database_name}.#{@album_table_name}_",
+      to: "#{@database_name}.#{@album_table_name}"
+    )
 
-    if tables.include? @album_table_name + "_"
-      db[@album_table_name + "_"].rename(@album_table_name)
-    end
+    db.use(:admin).command(
+      renameCollection: "#{@database_name}.#{@photograph_table_name}_",
+      to: "#{@database_name}.#{@photograph_table_name}"
+    )
 
-    if tables.include? @photograph_table_name + "_"
-      db[@photograph_table_name + "_"].rename(@photograph_table_name)
-    end
+    # db[@album_table_name + "_"].rename(@album_table_name)
+    # db[@photograph_table_name + "_"].rename(@photograph_table_name)
   end
 
   def wrap_mongo_call
