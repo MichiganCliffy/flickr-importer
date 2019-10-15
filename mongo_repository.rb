@@ -47,7 +47,7 @@ class MongoRepository
       print "\ndropped old collections"
       STDOUT.flush
       rename_temp_tables(db)
-      print "\nrenamed new collections"
+      print "\nrenamed new collections\n"
       STDOUT.flush
     }
   end
