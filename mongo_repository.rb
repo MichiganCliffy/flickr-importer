@@ -44,10 +44,10 @@ class MongoRepository
       print "."
       STDOUT.flush
       drop_real_tables(db)
-      print "dropped old collections"
+      print "\ndropped old collections"
       STDOUT.flush
       rename_temp_tables(db)
-      print "renamed new collections"
+      print "\nrenamed new collections"
       STDOUT.flush
     }
   end

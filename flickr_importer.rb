@@ -39,8 +39,6 @@ class FlickrImporter
 
     repo = MongoRepository.new(args)
     repo.save_albums(albums)
-
-    puts '.'
   end
 
   def run(args = {})
