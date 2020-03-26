@@ -65,7 +65,7 @@ task :test_push_to_mongo do
   albums << album
   
   importer = FlickrImporter.new({"database_name" => "testing"})
-  importer.push_to_mongo(albums)
+  importer.push_to_mongo(albums, {"database_name" => "testing"})
 end
 
 task :test_hash_mapping do

@@ -7,6 +7,7 @@ class MongoRepository
   attr_accessor :database_host,
                 :database_port,
                 :database_name,
+                :protocol,
                 :album_table_name,
                 :photograph_table_name
 
@@ -17,6 +18,7 @@ class MongoRepository
     @database_name = "cliffy"
     @album_table_name = "sets"
     @photograph_table_name = "photographs"
+    @protocol = "mongodb"
 
     if ENV["MONGO_HOST"] != nil && ENV["MONGO_HOST"].length > 0
       @database_host = ENV["MONGO_HOST"]
@@ -24,6 +26,10 @@ class MongoRepository
 
     if ENV["MONGO_PORT"] != nil && ENV["MONGO_PORT"].length > 0
       @database_port = ENV["MONGO_PORT"]
+    end
+
+    if ENV["PROTOCOL"] != nil && ENV["PROTOCOL"].length > 0
+      @protocol = ENV["PROTOCOL"]
     end
 
     parse_args(args)
@@ -74,6 +80,10 @@ class MongoRepository
     if args["database_port"] != nil && args["database_port"].length > 0
       @database_port = args["database_port"]
     end
+
+    if args["protocol"] != nil && args["protocol"].length > 0
+      @protocol = args["protocol"]
+    end
   end
 
   def drop_temp_tables(db)
@@ -114,7 +124,7 @@ class MongoRepository
   end
 
   def wrap_mongo_call
-    url = 'mongodb://'
+    url = @protocol + '://'
 
     user = ENV["MONGO_USER"]
     if user != nil && user.length > 0
@@ -124,7 +134,11 @@ class MongoRepository
 
     if @database_host != nil && @database_host.length > 0
       if @database_port != nil && @database_port.length > 0
-        url += @database_host + ':' + @database_port
+        if @database_port == '0'
+          url += @database_host
+        else
+          url += @database_host + ':' + @database_port
+        end
       else
         url += @database_host + ':27017'
       end
